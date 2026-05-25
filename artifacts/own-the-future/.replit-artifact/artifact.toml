@@ -1,0 +1,37 @@
+kind = "web"
+previewPath = "/"
+title = "OwnTheFuture"
+version = "1.0.0"
+id = "artifacts/own-the-future"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18263
+
+[services.development]
+run = "pnpm --filter @workspace/own-the-future run dev"
+
+[services.env]
+PORT = "18263"
+
+[services.production]
+
+[services.production.build]
+args = ["pnpm", "--filter", "@workspace/own-the-future", "run", "build"]
+
+[services.production.build.env]
+NODE_ENV = "production"
+PORT = "18263"
+
+[services.production.run]
+args = ["pnpm", "--filter", "@workspace/own-the-future", "run", "start"]
+
+[services.production.run.env]
+PORT = "18263"
+NODE_ENV = "production"
